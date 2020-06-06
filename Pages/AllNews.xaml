@@ -1,0 +1,138 @@
+﻿<Page
+    x:Class="HotNews_UWP.Pages.AllNews"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HotNews_UWP.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:data="using:HotNews_UWP.Data"
+    Loaded="Page_Loaded"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="0">
+                <StackPanel Margin="0,2,5,2"
+                            Orientation="Horizontal">
+                    <Image Source="/Assets/icon/zhihu.ico"/>
+                    <Button Content="知乎"
+                            Name="Zhihu"
+                            Click="Zhihu_Click"/>
+                </StackPanel>
+
+                <StackPanel Margin="0,2,5,2"
+                            Orientation="Horizontal">
+                    <Image Source="/Assets/icon/douyin.png"/>
+                    <Button Content="抖音"
+                            Name="Douyin"
+                            Click="Douyin_Click"/>
+                </StackPanel>
+
+                <StackPanel Margin="0,2,5,2"
+                            Orientation="Horizontal">
+                    <Image Source="/Assets/icon/weiboHot.ico"/>
+                    <Button Content="微博热搜"
+                            Name="WeiBoHot"
+                            Click="WeiBoHot_Click"/>
+                </StackPanel>
+
+                <StackPanel Margin="0,2,5,2"
+                            Orientation="Horizontal">
+                    <Image Source="/Assets/icon/douban.ico"/>
+                    <Button Content="豆瓣"
+                            Name="DouBan"
+                            Click="DouBan_Click"/>
+                </StackPanel>
+
+                <StackPanel Margin="0,2,5,2"
+                            Orientation="Horizontal">
+                    <Image Source="/Assets/icon/hupu.ico"/>
+                    <Button Content="虎扑"
+                            Name="HuPu"
+                            Click="HuPu_Click"/>
+                </StackPanel>
+
+                <StackPanel Margin="0,2,5,2"
+                            Orientation="Horizontal">
+                    <Image Source="/Assets/icon/nga.png"/>
+                    <Button Content="NGA"
+                            Name="NGA"
+                            Click="NGA_Click"/>
+                </StackPanel>
+
+                <StackPanel Margin="0,2,5,2"
+                            Orientation="Horizontal">
+                    <Image Source="/Assets/icon/ithome.ico"/>
+                    <Button Content="IT之家"
+                            Name="ItHome"
+                            Click="ItHome_Click"/>
+                </StackPanel>
+
+                <StackPanel Margin="0,2,5,2"
+                            Orientation="Horizontal">
+                    <Image Source="/Assets/icon/wechat.ico"/>
+                    <Button Content="微信"
+                            Name="WeChat"
+                            Click="WeChat_Click"/>
+                </StackPanel>
+
+                <StackPanel Margin="0,2,5,2"
+                            Orientation="Horizontal">
+                    <Image Source="/Assets/icon/guanchaz.png"/>
+                    <Button Content="观察者"
+                            Name="GuanChaZhe"
+                            Click="GuanChaZhe_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <ProgressRing Foreground="Gray"
+                          Name="MyProgressRing"
+                          Margin="0,80,0,0"
+                          Height="80"
+                          Width="80"
+                          Grid.Row="1"
+                          VerticalAlignment="Bottom" 
+                          HorizontalAlignment="Center"/>
+
+            <ListView ItemsSource="{x:Bind allData}"
+                      Grid.Row="1"
+                      IsItemClickEnabled="True"
+                      ItemClick="ListView_ItemClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Datum">
+                        <Grid Margin="20,20,20,20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="{x:Bind Title}" TextWrapping="Wrap"/>
+                            <TextBlock Grid.Row="1" Text="{x:Bind hotDesc}"/>
+
+
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+
+        </Grid>
+
+
+    </ScrollViewer>
+
+
+</Page>
